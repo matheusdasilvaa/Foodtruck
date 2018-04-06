@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22B39233-8A51-4D1C-B36D-FE87E1D737EA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Foodtruck.Telas</RootNamespace>
-    <AssemblyName>Foodtruck.Telas</AssemblyName>
+    <ProjectGuid>{841F135F-18E7-48F4-AA94-C674EAF5CC01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Foodtruck.Persistencia</RootNamespace>
+    <AssemblyName>Foodtruck.Persistencia</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,21 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Foodtruck.Negocio\Foodtruck.Negocio.csproj">
-      <Project>{9a5b145e-5f2d-45d8-b624-c827732f1592}</Project>
-      <Name>Foodtruck.Negocio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Foodtruck.Persistencia\Foodtruck.Persistencia.csproj">
-      <Project>{841f135f-18e7-48f4-aa94-c674eaf5cc01}</Project>
-      <Name>Foodtruck.Persistencia</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
