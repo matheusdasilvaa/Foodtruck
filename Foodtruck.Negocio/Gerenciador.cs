@@ -4,29 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Foodtruck.Negocio.Persistencia;
 
 namespace Foodtruck.Negocio
 {
     public class Gerenciador
     {
-        private List<Cliente> Clientes;
-        private List<Bebida> Bebidas;
-        private List<Lanche> Lanches;
-        private List<Pedido> Pedidos;
+
+        private Banco banco = new Banco();
 
         public Gerenciador()
         {
-            this.Clientes = new List<Cliente>();
-            this.Bebidas = new List<Bebida>();
-            this.Lanches = new List<Lanche>();
-            this.Pedidos = new List<Pedido>();
+            
         }
 
         public Validacao AdicionarCliente(Cliente clienteAdicionado)
         {
             Validacao validacao = new Validacao();
 
-            if(this.Clientes.Where(c => c.Id == clienteAdicionado.Id).Any())
+            if(this.banco.Clientes.Where(c => c.Id == clienteAdicionado.Id).Any())
             {
                 validacao.Mensagens.Add("Id", "Já existe um cliente com esse código");
             }
@@ -48,7 +44,8 @@ namespace Foodtruck.Negocio
 
             if (validacao.Valido)
             {
-                this.Clientes.Add(clienteAdicionado);
+                this.banco.Clientes.Add(clienteAdicionado);
+                this.banco.SalvarDados();
             }
 
             return validacao;
@@ -56,12 +53,13 @@ namespace Foodtruck.Negocio
 
         public List<Cliente> TodosOsClientes()
         {
-            return this.Clientes.ToList();
+            return this.banco.Clientes.ToList();
         }
 
         public void AdicionarLanche(Lanche lancheAdicionado)
         {
-            this.Lanches.Add(lancheAdicionado);
+            this.banco.Lanches.Add(lancheAdicionado);
+            this.banco.SalvarDados();
         }
 
 
