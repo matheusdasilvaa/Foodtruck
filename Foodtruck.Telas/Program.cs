@@ -33,7 +33,6 @@ Mostrar um relatório com o CPF, nome do cliente, quantidade de lanches comprado
         static void Main(string[] args)
         {
             
-
             int opcao = 0;
             do
             {
@@ -73,8 +72,19 @@ Mostrar um relatório com o CPF, nome do cliente, quantidade de lanches comprado
             Console.WriteLine("Informe o email:");
             novoCliente.Email = Console.ReadLine();
 
-            gerenciador.AdicionarCliente(novoCliente);
-            Console.WriteLine("Cliente cadastrado com sucesso!");
+            Validacao validacao = gerenciador.AdicionarCliente(novoCliente);
+            if (validacao.Valido)
+            {
+                Console.WriteLine("Cliente cadastrado com sucesso!");
+            }
+            else
+            {
+                foreach(String key in validacao.Mensagens.Keys)
+                {
+                    String mensagem = validacao.Mensagens[key];
+                    Console.WriteLine($"{key}: {mensagem}");
+                }
+            }
             Console.ReadLine();
         }
 

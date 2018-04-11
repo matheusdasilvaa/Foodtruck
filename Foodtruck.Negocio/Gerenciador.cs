@@ -22,19 +22,36 @@ namespace Foodtruck.Negocio
             this.Pedidos = new List<Pedido>();
         }
 
-        public void AdicionarCliente(Cliente clienteAdicionado)
+        public Validacao AdicionarCliente(Cliente clienteAdicionado)
         {
+            Validacao validacao = new Validacao();
+
+            if(this.Clientes.Where(c => c.Id == clienteAdicionado.Id).Any())
+            {
+                validacao.Mensagens.Add("Id", "Já existe um cliente com esse código");
+            }
+
             if (String.IsNullOrEmpty(clienteAdicionado.Nome))
             {
-                return;
+                validacao.Mensagens.Add("Nome", "O nome não pode ser nulo ou vazio");
             }
 
             if (String.IsNullOrEmpty(clienteAdicionado.Email))
             {
-                return;
+                validacao.Mensagens.Add("Email", "O email não pode ser nulo ou vazio");
             }
 
-            this.Clientes.Add(clienteAdicionado);
+            if (!clienteAdicionado.Email.Contains("@"))
+            {
+                validacao.Mensagens.Add("Email", "Email no formato inválido");
+            }
+
+            if (validacao.Valido)
+            {
+                this.Clientes.Add(clienteAdicionado);
+            }
+
+            return validacao;
         }
 
         public List<Cliente> TodosOsClientes()
