@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtruck.Telas", "Foodtruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtruck.Negocio", "Foodtruck.Negocio\Foodtruck.Negocio.csproj", "{9A5B145E-5F2D-45D8-B624-C827732F1592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtruck.Persistencia", "Foodtruck.Persistencia\Foodtruck.Persistencia.csproj", "{841F135F-18E7-48F4-AA94-C674EAF5CC01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtruck.Grafico", "Foodtruck.Grafico\Foodtruck.Grafico.csproj", "{61FDF7F2-E7DC-4F1A-ACAB-B6B8B3BB3513}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{9A5B145E-5F2D-45D8-B624-C827732F1592}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A5B145E-5F2D-45D8-B624-C827732F1592}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A5B145E-5F2D-45D8-B624-C827732F1592}.Release|Any CPU.Build.0 = Release|Any CPU
-		{841F135F-18E7-48F4-AA94-C674EAF5CC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{841F135F-18E7-48F4-AA94-C674EAF5CC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{841F135F-18E7-48F4-AA94-C674EAF5CC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{841F135F-18E7-48F4-AA94-C674EAF5CC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FDF7F2-E7DC-4F1A-ACAB-B6B8B3BB3513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FDF7F2-E7DC-4F1A-ACAB-B6B8B3BB3513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FDF7F2-E7DC-4F1A-ACAB-B6B8B3BB3513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FDF7F2-E7DC-4F1A-ACAB-B6B8B3BB3513}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
