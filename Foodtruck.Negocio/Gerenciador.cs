@@ -13,14 +13,7 @@ namespace Foodtruck.Negocio
 
         private Banco banco = new Banco();
 
-        public Gerenciador()
-        {
-            Bebida bebida = new Bebida();
-            Lanche lanche = new Lanche();
-            Produto produto = new Produto();
-
-
-        }
+        
 
         public Validacao AdicionarCliente(Cliente clienteAdicionado)
         {
