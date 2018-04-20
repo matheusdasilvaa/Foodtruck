@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Foodtruck.Negocio.Models
 {
-    public class Bebida
+    public class Bebida : Produto
     {
-        public long Id { get; set; }
-        public String Nome { get; set; }
-        public Decimal Valor { get; set; }
         public float Tamanho { get; set; }
+
+        public override String Descrever()
+        {
+            return String.Format($"{this.Id} - {this.Nome} - {this.Valor} - {this.Tamanho}ml");
+        }
     }
 }
