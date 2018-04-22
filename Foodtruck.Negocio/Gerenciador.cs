@@ -26,6 +26,16 @@ namespace Foodtruck.Negocio
                 validacao.Mensagens.Add("Id", "Já existe um cliente com esse código");
             }
 
+            if (String.IsNullOrEmpty(clienteAdicionado.CPF))
+            {
+                validacao.Mensagens.Add("CPF", "O campo CPF não pode ser nulo ou vazio");
+            }
+
+            if(this.banco.Clientes.Where(c => c.CPF == clienteAdicionado.CPF).Any() && validacao.Mensagens.Count == 0)
+            {
+                validacao.Mensagens.Add("CPF", "Já exite um cliente com esse CPF");
+            }
+
             if (String.IsNullOrEmpty(clienteAdicionado.Nome))
             {
                 validacao.Mensagens.Add("Nome", "O nome não pode ser nulo ou vazio");
