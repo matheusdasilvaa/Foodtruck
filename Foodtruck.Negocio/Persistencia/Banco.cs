@@ -49,6 +49,7 @@ namespace Foodtruck.Negocio.Persistencia
                 FileStream arquivo = File.OpenRead(NomeArquivo);
                 XmlSerializer serializer = new XmlSerializer(typeof(Dados));
                 Dados dados = serializer.Deserialize(arquivo) as Dados;
+                arquivo.Close();
                 this.Clientes = dados.Clientes;
                 this.Bebidas = dados.Bebidas;
                 this.Lanches = dados.Lanches;

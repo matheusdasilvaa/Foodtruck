@@ -122,6 +122,7 @@
             this.btCancelar.TabIndex = 9;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // ManterCliente
             // 
@@ -140,6 +141,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ManterCliente";
             this.Text = "ManterCliente";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.ManterCliente_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

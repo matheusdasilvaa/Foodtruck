@@ -13,6 +13,25 @@ namespace Foodtruck.Negocio
 
         private Banco banco = new Banco();
 
+        public Validacao RemoverCliente(Cliente cliente)
+        {
+            Validacao validacao = new Validacao();
+            banco.Clientes.Remove(cliente);
+            banco.SalvarDados();
+            return validacao;
+        }
+
+        public Validacao AlterarCliente(Cliente clienteAlterado)
+        {
+            Validacao validacao = new Validacao();
+            Cliente clienteBanco = BuscaClientePorId(clienteAlterado.Id);
+            clienteBanco.Nome = clienteAlterado.Nome;
+            clienteBanco.Email = clienteAlterado.Email;
+            clienteBanco.CPF = clienteAlterado.CPF;
+            this.banco.SalvarDados();
+            return validacao;
+        }
+
         public Validacao AdicionarCliente(Cliente clienteAdicionado)
         {
             Validacao validacao = new Validacao();
@@ -156,6 +175,10 @@ namespace Foodtruck.Negocio
             return validacao;
         }
         
+        public Cliente BuscaClientePorId(long id)
+        {
+            return this.banco.Clientes.Where(c => c.Id == id).FirstOrDefault();
+        }
 
         public List<Cliente> TodosOsClientes()
         {
