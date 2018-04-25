@@ -22,7 +22,15 @@ namespace Foodtruck.Grafico
         private void btSalvar_Click(object sender, EventArgs e)
         {
             Cliente novoCliente = new Cliente();
-            novoCliente.Id = Convert.ToInt64(tbId.Text);
+            if(Int64.TryParse(tbId.Text, out long value))
+            {
+                novoCliente.Id = value;
+            }
+            else
+            {
+                novoCliente.Id = -1;
+                //passa indentificador com valor negativo se não conseguir converter
+            }
             novoCliente.CPF = tbCpf.Text;
             novoCliente.Nome = tbNome.Text;
             novoCliente.Email = tbEmail.Text;
@@ -39,6 +47,10 @@ namespace Foodtruck.Grafico
                     mensagemValidacao += Environment.NewLine;
                 }
                 MessageBox.Show(mensagemValidacao);
+            }
+            else
+            {
+                MessageBox.Show("Cadastro de cliente realizado");
             }
         }
     }

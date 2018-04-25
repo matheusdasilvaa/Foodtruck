@@ -13,15 +13,27 @@ namespace Foodtruck.Negocio
 
         private Banco banco = new Banco();
 
-        
-
         public Validacao AdicionarCliente(Cliente clienteAdicionado)
         {
             Validacao validacao = new Validacao();
-
-            if(this.banco.Clientes.Where(c => c.Id == clienteAdicionado.Id).Any())
+            if(clienteAdicionado.Id < 0)
+            {
+                validacao.Mensagens.Add("Id", "O indenfiticador deve constituir apenas números positivos");
+            }
+            //verifica se já tem alguma mensagem de erro e se tiver pula essa verificação
+            if(this.banco.Clientes.Where(c => c.Id == clienteAdicionado.Id).Any() && validacao.Mensagens.Count == 0)
             {
                 validacao.Mensagens.Add("Id", "Já existe um cliente com esse código");
+            }
+
+            if (String.IsNullOrEmpty(clienteAdicionado.CPF))
+            {
+                validacao.Mensagens.Add("CPF", "O campo CPF não pode ser nulo ou vazio");
+            }
+
+            if(this.banco.Clientes.Where(c => c.CPF == clienteAdicionado.CPF).Any() && validacao.Mensagens.Count == 0)
+            {
+                validacao.Mensagens.Add("CPF", "Já exite um cliente com esse CPF");
             }
 
             if (String.IsNullOrEmpty(clienteAdicionado.Nome))
@@ -34,7 +46,7 @@ namespace Foodtruck.Negocio
                 validacao.Mensagens.Add("Email", "O email não pode ser nulo ou vazio");
             }
 
-            if (!clienteAdicionado.Email.Contains("@"))
+            if (!clienteAdicionado.Email.Contains("@") && validacao.Mensagens.Count == 0)
             {
                 validacao.Mensagens.Add("Email", "Email no formato inválido");
             }
@@ -48,17 +60,121 @@ namespace Foodtruck.Negocio
             return validacao;
         }
 
+        public Validacao CadastraBebida(Bebida bebidaCadastrada)
+        {
+            Validacao validacao = new Validacao();
+
+            if(this.banco.Bebidas.Where(x => x.Id == bebidaCadastrada.Id).Any())
+            {
+                validacao.Mensagens.Add("id", "Já existem uma bebida com esse código");
+            }
+
+            if(string.IsNullOrEmpty(bebidaCadastrada.Nome))
+            {
+                validacao.Mensagens.Add("nome", "O nome não pode ser nulo ou vazio");
+            }
+
+            if(string.IsNullOrEmpty(Convert.ToString(bebidaCadastrada.Tamanho)))
+            {
+                validacao.Mensagens.Add("tamanho", "O campo tamanho não pode ser nulo ou vazio");
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(bebidaCadastrada.Valor)))
+            {
+                validacao.Mensagens.Add("valor", "O campo valor não pode ser nulo ou vazio");
+            }
+
+            if (validacao.Valido)
+            {
+                this.banco.Bebidas.Add(bebidaCadastrada);
+                this.banco.SalvarDados();
+            }
+            return validacao;
+        }
+
+        public Validacao CadastraLanche(Lanche lancheCadastrado)
+        {
+            Validacao validacao = new Validacao();
+
+            if (this.banco.Lanches.Where(x => x.Id == lancheCadastrado.Id).Any())
+            {
+                validacao.Mensagens.Add("id", "Já existem uma bebida com esse código");
+            }
+
+            if (string.IsNullOrEmpty(lancheCadastrado.Nome))
+            {
+                validacao.Mensagens.Add("nome", "O nome não pode ser nulo ou vazio");
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(lancheCadastrado.Valor)))
+            {
+                validacao.Mensagens.Add("valor", "O campo valor não pode ser nulo ou vazio");
+            }
+
+            if (validacao.Valido)
+            {
+                this.banco.Lanches.Add(lancheCadastrado);
+                this.banco.SalvarDados();
+            }
+            return validacao;
+        }
+
+        public Validacao CadastraPedido(Pedido pedidoCadastrado)
+        {
+            Validacao validacao = new Validacao();
+            if(this.banco.Pedidos.Where(x => x.Id == pedidoCadastrado.Id).Any())
+            {
+                validacao.Mensagens.Add("id", "Já existem um pedido com esse código");
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(pedidoCadastrado.DataCompra)))
+            {
+                validacao.Mensagens.Add("datacompra", "O campo data não pode ser nulo ou vazío");
+            }
+
+            if (!(this.banco.Clientes.Where(x => x.Id == pedidoCadastrado.Id).Any()))
+            {
+                validacao.Mensagens.Add("cliente", "Não existe nenhum cliente cadastrado com esse código idenfiticador");
+            }
+
+            foreach (Lanche lanches in pedidoCadastrado.Lanches)
+            {
+                if (!(this.banco.Lanches.Where(x => x == lanches).Any()))
+                {
+                    validacao.Mensagens.Add("lanche", "$Não existe nenhum lanche cadastrado em um dos códigos informados");
+                }
+            }
+
+            foreach (Bebida bebidas in pedidoCadastrado.Bebidas)
+            {
+                if (!(this.banco.Bebidas.Where(x => x == bebidas).Any()))
+                {
+                    validacao.Mensagens.Add("bebida", "$Não existe nenhuma bebida cadastrada em um dos códigos informados");
+                }
+            }
+
+            return validacao;
+        }
+        
+
         public List<Cliente> TodosOsClientes()
         {
             return this.banco.Clientes.ToList();
         }
 
-        public void AdicionarLanche(Lanche lancheAdicionado)
+        public List<Bebida> TodasAsBebidas()
         {
-            this.banco.Lanches.Add(lancheAdicionado);
-            this.banco.SalvarDados();
+            return this.banco.Bebidas.ToList();
         }
 
+        public List<Lanche> TodosOsLanches()
+        {
+            return this.banco.Lanches.ToList();
+        }
 
+        public List<Pedido> TodosOsPedidos()
+        {
+            return this.banco.Pedidos.ToList();
+        }
     }
 }
