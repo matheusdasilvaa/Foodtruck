@@ -16,5 +16,17 @@ namespace Foodtruck.Grafico
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // ListaPedidos
+            // 
+            this.ClientSize = new System.Drawing.Size(1050, 631);
+            this.Name = "ListaPedidos";
+            this.ResumeLayout(false);
+
+        }
     }
 }
