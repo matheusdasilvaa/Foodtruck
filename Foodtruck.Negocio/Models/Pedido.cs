@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 
 namespace Foodtruck.Negocio.Models
 {
+
+
     [Table(name: "Pedidos")]
     public class Pedido
     {
         public long Id { get; set; }
         public DateTime DataCompra { get; set; }
         public virtual Cliente Cliente { get; set; }
-        public virtual List<Lanche> Lanches { get; set; }
-        public virtual List<Bebida> Bebidas { get; set; }
+        public virtual ICollection<Lanche> Lanches { get; set; }
+        public virtual ICollection<Bebida> Bebidas { get; set; }
 
         public Pedido()
         {
+            this.DataCompra = DateTime.MinValue;
             this.Lanches = new List<Lanche>();
             this.Bebidas = new List<Bebida>();
         }

@@ -10,7 +10,7 @@ namespace Foodtruck.Negocio
 {
     public class Gerenciador
     {
-
+       
         private Banco banco = new Banco();
 
         public Validacao RemoverCliente(Cliente cliente)
@@ -151,26 +151,29 @@ namespace Foodtruck.Negocio
                 validacao.Mensagens.Add("datacompra", "O campo data não pode ser nulo ou vazío");
             }
 
-            if (!(this.banco.Clientes.Where(x => x.Id == pedidoCadastrado.Id).Any()))
+            if (!(this.banco.Clientes.Where(x => x.Id == pedidoCadastrado.Cliente.Id).Any()))
             {
                 validacao.Mensagens.Add("cliente", "Não existe nenhum cliente cadastrado com esse código idenfiticador");
             }
 
-            foreach (Lanche lanches in pedidoCadastrado.Lanches)
+            foreach (Lanche lanche in pedidoCadastrado.Lanches)
             {
-                if (!(this.banco.Lanches.Where(x => x == lanches).Any()))
+                if (!(this.banco.Lanches.Where(x => x.Id == lanche.Id).Any()))
                 {
                     validacao.Mensagens.Add("lanche", "$Não existe nenhum lanche cadastrado em um dos códigos informados");
                 }
             }
 
-            foreach (Bebida bebidas in pedidoCadastrado.Bebidas)
+            foreach (Bebida bebida in pedidoCadastrado.Bebidas)
             {
-                if (!(this.banco.Bebidas.Where(x => x == bebidas).Any()))
+                if (!(this.banco.Bebidas.Where(x => x.Id == bebida.Id).Any()))
                 {
                     validacao.Mensagens.Add("bebida", "$Não existe nenhuma bebida cadastrada em um dos códigos informados");
                 }
             }
+
+            this.banco.Pedidos.Add(pedidoCadastrado);
+            this.banco.SaveChanges();
 
             return validacao;
         }

@@ -16,7 +16,5 @@ namespace Foodtruck.Negocio.Persistencia
         public virtual DbSet<Bebida> Bebidas { get; set; }
         public virtual DbSet<Lanche> Lanches { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
-
-
     }
 }
