@@ -14,7 +14,7 @@ namespace Foodtruck.Grafico
 {
     public partial class ManterBebida : Form
     {
-        public Cliente BebidaSelecionada { get; set; }
+        public Bebida BebidaSelecionada { get; set; }
 
         public ManterBebida()
         {
