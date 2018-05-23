@@ -58,6 +58,12 @@
     <Compile Include="AdicionaPedido.Designer.cs">
       <DependentUpon>AdicionaPedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManterBebida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManterBebida.Designer.cs">
+      <DependentUpon>ManterBebida.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManterCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="AdicionaPedido.resx">
       <DependentUpon>AdicionaPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManterBebida.resx">
+      <DependentUpon>ManterBebida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManterCliente.resx">
       <DependentUpon>ManterCliente.cs</DependentUpon>
