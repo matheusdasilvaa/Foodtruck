@@ -16,6 +16,7 @@ namespace Foodtruck.Grafico
         public TelaListaBebida()
         {
             InitializeComponent();
+            CarregarBebidas();
         }
 
         private void AbreTelaInclusaoAlteracao(Bebida BebidaSelecionada)

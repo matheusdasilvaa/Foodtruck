@@ -37,12 +37,30 @@ namespace Foodtruck.Grafico
             Validacao validacao;
             if (LancheSelecionado == null)
             {
-                validacao = Program.Gerenciador.AdicionarLanche(lanche);
+                validacao = Program.Gerenciador.CadastrarLanche(lanche);
             }
             else
             {
                 validacao = Program.Gerenciador.AlterarLanche(lanche);
             }
+
+            if (!validacao.Valido)
+            {
+                String mensagemValidacao = "";
+                foreach (var chave in validacao.Mensagens.Keys)
+                {
+                    String msg = validacao.Mensagens[chave];
+                    mensagemValidacao += msg;
+                    mensagemValidacao += Environment.NewLine;
+                }
+                MessageBox.Show(mensagemValidacao);
+            }
+            else
+            {
+                MessageBox.Show("Lanche salvo com sucesso");
+            }
+
+            this.Close();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Foodtruck.Grafico
         public TelaListaLanches()
         {
             InitializeComponent();
+            CarregarLanches();
         }
 
         private void AbreTelaInclusaoAlteracao(Lanche LancheaSelecionado)
@@ -46,6 +47,16 @@ namespace Foodtruck.Grafico
             dgLanches.DataSource = lanches;
         }
 
+        private bool VerificarSelecao()
+        {
+            if (dgLanches.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Selecione uma linha");
+                return false;
+            }
+            return true;
+        }
+
         private void TelaListaLanches_Load(object sender, EventArgs e)
         {
             CarregarLanches();
@@ -54,6 +65,28 @@ namespace Foodtruck.Grafico
         private void btAdicionarLanche_Click_1(object sender, EventArgs e)
         {
             AbreTelaInclusaoAlteracao(null);
+        }
+
+        private void btRemoverLanche_Click(object sender, EventArgs e)
+        {
+            if (VerificarSelecao())
+            {
+                DialogResult resultado = MessageBox.Show("Tem certeza?", "Quer remover?", MessageBoxButtons.OKCancel);
+                if (resultado == DialogResult.OK)
+                {
+                    Lanche lancheSelecionado = (Lanche)dgLanches.SelectedRows[0].DataBoundItem;
+                    var validacao = Program.Gerenciador.RemoverLanche(lancheSelecionado);
+                    if (validacao.Valido)
+                    {
+                        MessageBox.Show("Lanche removido com sucesso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um problema ao remover o Lanche");
+                    }
+                    CarregarLanches();
+                }
+            }
         }
     }
 }

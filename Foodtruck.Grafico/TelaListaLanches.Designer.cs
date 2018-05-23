@@ -55,6 +55,7 @@
             this.btRemoverLanche.TabIndex = 1;
             this.btRemoverLanche.Text = "Remover";
             this.btRemoverLanche.UseVisualStyleBackColor = true;
+            this.btRemoverLanche.Click += new System.EventHandler(this.btRemoverLanche_Click);
             // 
             // btAlterarLanche
             // 
