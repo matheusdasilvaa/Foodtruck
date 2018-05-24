@@ -30,7 +30,7 @@
         {
             this.btAdicionarLanche = new System.Windows.Forms.Button();
             this.btRemoverLanche = new System.Windows.Forms.Button();
-            this.btAlterarLanche = new System.Windows.Forms.Button();
+            this.btAlteraLanche = new System.Windows.Forms.Button();
             this.dgLanches = new System.Windows.Forms.DataGridView();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@
             this.btAdicionarLanche.TabIndex = 0;
             this.btAdicionarLanche.Text = "Adicionar";
             this.btAdicionarLanche.UseVisualStyleBackColor = true;
-            this.btAdicionarLanche.Click += new System.EventHandler(this.btAdicionarLanche_Click_1);
+            this.btAdicionarLanche.Click += new System.EventHandler(this.btAdicionarLanche_Click);
             // 
             // btRemoverLanche
             // 
@@ -57,14 +57,15 @@
             this.btRemoverLanche.UseVisualStyleBackColor = true;
             this.btRemoverLanche.Click += new System.EventHandler(this.btRemoverLanche_Click);
             // 
-            // btAlterarLanche
+            // btAlteraLanche
             // 
-            this.btAlterarLanche.Location = new System.Drawing.Point(216, 12);
-            this.btAlterarLanche.Name = "btAlterarLanche";
-            this.btAlterarLanche.Size = new System.Drawing.Size(96, 33);
-            this.btAlterarLanche.TabIndex = 2;
-            this.btAlterarLanche.Text = "Alterar";
-            this.btAlterarLanche.UseVisualStyleBackColor = true;
+            this.btAlteraLanche.Location = new System.Drawing.Point(216, 12);
+            this.btAlteraLanche.Name = "btAlteraLanche";
+            this.btAlteraLanche.Size = new System.Drawing.Size(96, 33);
+            this.btAlteraLanche.TabIndex = 2;
+            this.btAlteraLanche.Text = "Alterar";
+            this.btAlteraLanche.UseVisualStyleBackColor = true;
+            this.btAlteraLanche.Click += new System.EventHandler(this.btAlterarLanche_Click_1);
             // 
             // dgLanches
             // 
@@ -96,7 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgLanches);
-            this.Controls.Add(this.btAlterarLanche);
+            this.Controls.Add(this.btAlteraLanche);
             this.Controls.Add(this.btRemoverLanche);
             this.Controls.Add(this.btAdicionarLanche);
             this.Name = "TelaListaLanches";
@@ -110,7 +111,7 @@
 
         private System.Windows.Forms.Button btAdicionarLanche;
         private System.Windows.Forms.Button btRemoverLanche;
-        private System.Windows.Forms.Button btAlterarLanche;
+        private System.Windows.Forms.Button btAlteraLanche;
         private System.Windows.Forms.DataGridView dgLanches;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;

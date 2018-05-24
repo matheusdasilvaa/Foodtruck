@@ -22,7 +22,7 @@ namespace Foodtruck.Grafico
             CarregarLanches();
         }
 
-        private void AbreTelaInclusaoAlteracao(Lanche LancheaSelecionado)
+        private void AbreTelaInclusaoAlteracao(Lanche LancheSelecionado)
         {
             TelaAdicionaLanche telaLanche = new TelaAdicionaLanche();
             telaLanche.MdiParent = this.MdiParent;
@@ -62,7 +62,7 @@ namespace Foodtruck.Grafico
             CarregarLanches();
         }
 
-        private void btAdicionarLanche_Click_1(object sender, EventArgs e)
+        private void btAdicionarLanche_Click(object sender, EventArgs e)
         {
             AbreTelaInclusaoAlteracao(null);
         }
@@ -87,6 +87,17 @@ namespace Foodtruck.Grafico
                     CarregarLanches();
                 }
             }
+        }
+
+        private void btAlterarLanche_Click_1(object sender, EventArgs e)
+        {
+            
+                if (VerificarSelecao())
+                {
+                    Lanche lancheSelecionado = (Lanche)dgLanches.SelectedRows[0].DataBoundItem;
+                    AbreTelaInclusaoAlteracao(lancheSelecionado);
+                }
+            
         }
     }
 }

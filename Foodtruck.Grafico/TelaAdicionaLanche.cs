@@ -14,26 +14,17 @@ namespace Foodtruck.Grafico
 {
     public partial class TelaAdicionaLanche : Form
     {
-        internal Lanche LancheSelecionado;
+        public Lanche LancheSelecionado { get; set; }
 
-        public TelaAdicionaLanche()
+        public TelaAdicionaLanche ()
         {
             InitializeComponent();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btSalvarLanche_Click(object sender, EventArgs e)
         {
             Lanche lanche = new Lanche();
-
             lanche.Nome = tbNomeLanche.Text;
             lanche.Valor = decimal.Parse(tbValorLanche.Text);
-            
-
             Validacao validacao;
             if (LancheSelecionado == null)
             {
@@ -42,7 +33,10 @@ namespace Foodtruck.Grafico
             else
             {
                 validacao = Program.Gerenciador.AlterarLanche(lanche);
+
             }
+
+
 
             if (!validacao.Valido)
             {
@@ -61,6 +55,26 @@ namespace Foodtruck.Grafico
             }
 
             this.Close();
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ManterLanches_Shown(object sender, EventArgs e)
+        {
+            if (LancheSelecionado != null)
+            {
+                //this.tbIdLanche.Text = LancheSelecionado.Id.ToString();
+                this.tbNomeLanche.Text = LancheSelecionado.Nome;
+                this.tbValorLanche.Text = LancheSelecionado.Valor.ToString();
+            }
+        }
+
+        private void tbNomeLanche_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

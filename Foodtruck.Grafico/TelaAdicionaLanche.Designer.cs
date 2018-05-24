@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 59);
+            this.label1.Location = new System.Drawing.Point(39, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 2;
@@ -68,23 +68,23 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 107);
+            this.label2.Location = new System.Drawing.Point(39, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Valor (R$):";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbNomeLanche
             // 
-            this.tbNomeLanche.Location = new System.Drawing.Point(164, 59);
+            this.tbNomeLanche.Location = new System.Drawing.Point(164, 86);
             this.tbNomeLanche.Name = "tbNomeLanche";
             this.tbNomeLanche.Size = new System.Drawing.Size(100, 22);
             this.tbNomeLanche.TabIndex = 4;
+            this.tbNomeLanche.TextChanged += new System.EventHandler(this.tbNomeLanche_TextChanged);
             // 
             // tbValorLanche
             // 
-            this.tbValorLanche.Location = new System.Drawing.Point(164, 102);
+            this.tbValorLanche.Location = new System.Drawing.Point(164, 129);
             this.tbValorLanche.Name = "tbValorLanche";
             this.tbValorLanche.Size = new System.Drawing.Size(100, 22);
             this.tbValorLanche.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 280);
+            this.ClientSize = new System.Drawing.Size(330, 323);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbValorLanche);
             this.Controls.Add(this.tbNomeLanche);
@@ -124,6 +124,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbNomeLanche;
+        
         private System.Windows.Forms.TextBox tbValorLanche;
         private System.Windows.Forms.Label label3;
     }
