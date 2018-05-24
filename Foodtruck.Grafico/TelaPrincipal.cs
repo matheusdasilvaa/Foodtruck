@@ -131,5 +131,12 @@ namespace Foodtruck.Grafico
             telaLanche.MdiParent = this;
             telaLanche.Show();
         }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TelaListaPedido telaListaPedido = new TelaListaPedido();
+            telaListaPedido.MdiParent = this;
+            telaListaPedido.Show();
+        }
     }
 }

@@ -97,6 +97,12 @@
     <Compile Include="TelaListaLanches.Designer.cs">
       <DependentUpon>TelaListaLanches.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaListaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaListaPedido.Designer.cs">
+      <DependentUpon>TelaListaPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaListaLanches.resx">
       <DependentUpon>TelaListaLanches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaListaPedido.resx">
+      <DependentUpon>TelaListaPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipal.resx">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
