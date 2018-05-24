@@ -149,10 +149,7 @@ namespace Foodtruck.Negocio
         {
             Validacao validacao = new Validacao();
 
-            if (this.banco.Lanches.Where(x => x.Id == lancheCadastrado.Id).Any())
-            {
-                validacao.Mensagens.Add("id", "Já existem uma bebida com esse código");
-            }
+            
 
             if (string.IsNullOrEmpty(lancheCadastrado.Nome))
             {
@@ -190,13 +187,11 @@ namespace Foodtruck.Negocio
             return validacao;
         }
 
+      
+
         public Validacao CadastraPedido(Pedido pedidoCadastrado)
         {
             Validacao validacao = new Validacao();
-            if(this.banco.Pedidos.Where(x => x.Id == pedidoCadastrado.Id).Any())
-            {
-                validacao.Mensagens.Add("id", "Já existem um pedido com esse código");
-            }
 
             if (string.IsNullOrEmpty(Convert.ToString(pedidoCadastrado.DataCompra)))
             {
