@@ -15,6 +15,7 @@ namespace Foodtruck.Grafico
     public partial class AdicionaPedido : Form
     {
         Pedido pedido = new Pedido();
+        public Pedido PedidoSelecionado { get; set; }
 
         public AdicionaPedido()
         {
@@ -35,9 +36,12 @@ namespace Foodtruck.Grafico
 
         private void CarregaComboBoxes()
         {
-            cbClientes.DisplayMember = "Descricao";
-            cbClientes.ValueMember = "Id";
-            cbClientes.DataSource = Program.Gerenciador.TodosOsClientes();
+            if (PedidoSelecionado == null)
+            {
+                cbClientes.DisplayMember = "Descricao";
+                cbClientes.ValueMember = "Id";
+                cbClientes.DataSource = Program.Gerenciador.TodosOsClientes();
+            }
 
             cbLanches.DisplayMember = "Nome";
             cbLanches.ValueMember = "Id";
@@ -98,6 +102,20 @@ namespace Foodtruck.Grafico
                 MessageBox.Show("Ocorreu um erro grave, fale com o administrador");
             }
             
+        }
+
+        private void btRemoverBebida_Click(object sender, EventArgs e)
+        {
+            Bebida bebidaSelecionada = (Bebida)dgBebidas.SelectedRows[0].DataBoundItem;
+            pedido.Bebidas.Remove(bebidaSelecionada);
+            CarregaDatagrids();
+        }
+
+        private void btRemoverLanche_Click(object sender, EventArgs e)
+        {
+            Lanche lancheSelecionado = (Lanche)dgLanches.SelectedRows[0].DataBoundItem;
+            pedido.Lanches.Remove(lancheSelecionado);
+            CarregaDatagrids();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Foodtruck.Negocio.Models
     public class Pedido
     {
         public long Id { get; set; }
+        public bool Encerrado { get; set; }
         public DateTime DataCompra { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual ICollection<Lanche> Lanches { get; set; }

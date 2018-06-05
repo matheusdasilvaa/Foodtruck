@@ -13,11 +13,30 @@ namespace Foodtruck.Grafico
 {
     public partial class TelaListaPedido : Form
     {
-        
+        Pedido pedido = new Pedido();
+
         public TelaListaPedido()
         {
             InitializeComponent();
             CarregarPedidos();
+        }
+
+        private void AbreTelaInclusaoAlteracao(Pedido pedidoSelecionado)
+        {
+            AdicionaPedido tela = new AdicionaPedido();
+            tela.MdiParent = this.MdiParent;
+            tela.PedidoSelecionado = pedidoSelecionado;
+            //tela.FormClosed += Tela_FormClosed;
+            tela.Show();
+        }
+
+        private void CarregarPedidos()
+        {
+            dgPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgPedidos.MultiSelect = false;
+            dgPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgPedidos.AutoGenerateColumns = false;
+            dgPedidos.DataSource = Program.Gerenciador.TodosOsPedidos();
         }
 
         private void dgLanches_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,18 +54,6 @@ namespace Foodtruck.Grafico
         {
             
             CarregarPedidos();
-        }
-
-        private void CarregarPedidos()
-        {
-            dgPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgPedidos.MultiSelect = false;
-            dgPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgPedidos.AutoGenerateColumns = false;
-            List<Pedido> pedidos = Program.Gerenciador.TodosOsPedidos();
-            //List<Cliente> clientes = Program.Gerenciador.TodosOsClientes();
-            dgPedidos.DataSource = pedidos;
-            //dgPedidos.DataSource = clientes;
         }
 
         private bool VerificarSelecao()
@@ -82,9 +89,27 @@ namespace Foodtruck.Grafico
         
     }
 
+
+
         private void btAlterar_Click(object sender, EventArgs e)
         {
+            if (VerificarSelecao())
+            {
+                Pedido pedidoSelecionado = (Pedido)dgPedidos.SelectedRows[0].DataBoundItem;
 
+                if (pedidoSelecionado.Encerrado.Equals(true))
+                {
+                    MessageBox.Show("Você não pode alterar um pedido finalizado");
+                    return;
+                }
+
+                AbreTelaInclusaoAlteracao(pedidoSelecionado);
+            }
+        }
+
+        private void TelaListaPedido_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CarregarPedidos();
         }
     }
 }
