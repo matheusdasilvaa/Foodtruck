@@ -37,6 +37,7 @@
             this.Bebida_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lanche_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +115,23 @@
             this.Situação.HeaderText = "Situação";
             this.Situação.Name = "Situação";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(234, 25);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 42);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Finalizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TelaListaPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btAlterar);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.dgPedidos);
@@ -142,5 +155,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Bebida_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lanche_Id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Situação;
+        private System.Windows.Forms.Button button1;
     }
 }

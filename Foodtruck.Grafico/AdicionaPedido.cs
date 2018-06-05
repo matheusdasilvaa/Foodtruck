@@ -54,10 +54,16 @@ namespace Foodtruck.Grafico
 
         private void CarregaDatagrids()
         {
+            dgBebidas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgBebidas.AutoGenerateColumns = false;
+            dgBebidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgBebidas.MultiSelect = false;
             dgBebidas.DataSource = pedido.Bebidas.ToList();
-            
+
+            dgLanches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgLanches.AutoGenerateColumns = false;
+            dgLanches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgLanches.MultiSelect = false;
             dgLanches.DataSource = pedido.Lanches.ToList();
 
             CarregaTotal();
