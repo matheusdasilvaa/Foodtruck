@@ -36,6 +36,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbIdBebida = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btCancelar
@@ -61,7 +63,7 @@
             // 
             // tbValorBebida
             // 
-            this.tbValorBebida.Location = new System.Drawing.Point(103, 112);
+            this.tbValorBebida.Location = new System.Drawing.Point(103, 155);
             this.tbValorBebida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbValorBebida.Name = "tbValorBebida";
             this.tbValorBebida.Size = new System.Drawing.Size(199, 22);
@@ -69,7 +71,7 @@
             // 
             // tbTamanhoBebida
             // 
-            this.tbTamanhoBebida.Location = new System.Drawing.Point(103, 66);
+            this.tbTamanhoBebida.Location = new System.Drawing.Point(103, 109);
             this.tbTamanhoBebida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTamanhoBebida.Name = "tbTamanhoBebida";
             this.tbTamanhoBebida.Size = new System.Drawing.Size(199, 22);
@@ -77,7 +79,7 @@
             // 
             // tbNomeBebida
             // 
-            this.tbNomeBebida.Location = new System.Drawing.Point(103, 22);
+            this.tbNomeBebida.Location = new System.Drawing.Point(103, 65);
             this.tbNomeBebida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNomeBebida.Name = "tbNomeBebida";
             this.tbNomeBebida.Size = new System.Drawing.Size(199, 22);
@@ -86,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 116);
+            this.label4.Location = new System.Drawing.Point(27, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 13;
@@ -95,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 66);
+            this.label3.Location = new System.Drawing.Point(27, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 12;
@@ -104,17 +106,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 26);
+            this.label2.Location = new System.Drawing.Point(27, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "Nome:";
+            // 
+            // tbIdBebida
+            // 
+            this.tbIdBebida.Location = new System.Drawing.Point(104, 23);
+            this.tbIdBebida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbIdBebida.Name = "tbIdBebida";
+            this.tbIdBebida.Size = new System.Drawing.Size(199, 22);
+            this.tbIdBebida.TabIndex = 21;
+            this.tbIdBebida.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "codigo:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ManterBebida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 370);
+            this.Controls.Add(this.tbIdBebida);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.tbValorBebida);
@@ -123,11 +146,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManterBebida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManterBebida";
             this.Load += new System.EventHandler(this.ManterBebida_Load);
+            this.Shown += new System.EventHandler(this.ManterBebida_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +167,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbIdBebida;
+        private System.Windows.Forms.Label label1;
     }
 }

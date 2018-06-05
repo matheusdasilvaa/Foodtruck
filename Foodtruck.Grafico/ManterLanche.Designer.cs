@@ -1,6 +1,6 @@
 ﻿namespace Foodtruck.Grafico
 {
-    partial class TelaAdicionaLanche
+    partial class ManterLanche
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,8 @@
             this.tbNomeLanche = new System.Windows.Forms.TextBox();
             this.tbValorLanche = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbIdLanche = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btCancelarCadastrolanche
@@ -98,11 +100,29 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Cadastrar Lanche";
             // 
-            // TelaAdicionaLanche
+            // tbIdLanche
+            // 
+            this.tbIdLanche.Location = new System.Drawing.Point(164, 44);
+            this.tbIdLanche.Name = "tbIdLanche";
+            this.tbIdLanche.Size = new System.Drawing.Size(100, 22);
+            this.tbIdLanche.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Código";
+            // 
+            // ManterLanche
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 323);
+            this.Controls.Add(this.tbIdLanche);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbValorLanche);
             this.Controls.Add(this.tbNomeLanche);
@@ -110,8 +130,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btSalvarLanche);
             this.Controls.Add(this.btCancelarCadastrolanche);
-            this.Name = "TelaAdicionaLanche";
+            this.Name = "ManterLanche";
             this.Text = "TelaAdicionaLanche";
+            this.Load += new System.EventHandler(this.TelaAdicionaLanche_Load);
+            this.Shown += new System.EventHandler(this.TelaAdicionaLanche_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +149,7 @@
         
         private System.Windows.Forms.TextBox tbValorLanche;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbIdLanche;
+        private System.Windows.Forms.Label label4;
     }
 }

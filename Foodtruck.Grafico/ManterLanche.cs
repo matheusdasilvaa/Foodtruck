@@ -12,19 +12,22 @@ using Foodtruck.Negocio.Models;
 
 namespace Foodtruck.Grafico
 {
-    public partial class TelaAdicionaLanche : Form
+    public partial class ManterLanche : Form
     {
         public Lanche LancheSelecionado { get; set; }
 
-        public TelaAdicionaLanche ()
+        public ManterLanche ()
         {
             InitializeComponent();
         }
         private void btSalvarLanche_Click(object sender, EventArgs e)
         {
             Lanche lanche = new Lanche();
+
+            lanche.Id = long.Parse(tbIdLanche.Text);
             lanche.Nome = tbNomeLanche.Text;
             lanche.Valor = decimal.Parse(tbValorLanche.Text);
+
             Validacao validacao;
             if (LancheSelecionado == null)
             {
@@ -62,11 +65,11 @@ namespace Foodtruck.Grafico
             this.Close();
         }
 
-        private void ManterLanches_Shown(object sender, EventArgs e)
+        private void ManterLanche_Shown(object sender, EventArgs e)
         {
             if (LancheSelecionado != null)
             {
-                //this.tbIdLanche.Text = LancheSelecionado.Id.ToString();
+               
                 this.tbNomeLanche.Text = LancheSelecionado.Nome;
                 this.tbValorLanche.Text = LancheSelecionado.Valor.ToString();
             }
@@ -75,6 +78,21 @@ namespace Foodtruck.Grafico
         private void tbNomeLanche_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TelaAdicionaLanche_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TelaAdicionaLanche_Shown(object sender, EventArgs e)
+        {
+            if (LancheSelecionado != null)
+            {
+                this.tbIdLanche.Text = LancheSelecionado.Id.ToString();
+                this.tbNomeLanche.Text = LancheSelecionado.Nome.ToString();
+                this.tbValorLanche.Text = LancheSelecionado.Valor.ToString();
+            }
         }
     }
 }

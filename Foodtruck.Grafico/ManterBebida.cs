@@ -29,7 +29,8 @@ namespace Foodtruck.Grafico
         private void btSalvar_Click(object sender, EventArgs e)
         {
             Bebida bebida = new Bebida();
-            
+
+            bebida.Id = long.Parse(tbIdBebida.Text);
             bebida.Nome = tbNomeBebida.Text;
             bebida.Tamanho = float.Parse(tbTamanhoBebida.Text);
             bebida.Valor = decimal.Parse(tbValorBebida.Text);
@@ -63,6 +64,27 @@ namespace Foodtruck.Grafico
             }
 
             this.Close();
+        }
+
+        private void ManterBebida_Shown(object sender, EventArgs e)
+        {
+            if (BebidaSelecionada != null)
+            {
+                this.tbIdBebida.Text = BebidaSelecionada.Id.ToString();
+                this.tbNomeBebida.Text = BebidaSelecionada.Nome;
+                this.tbTamanhoBebida.Text = BebidaSelecionada.Tamanho.ToString();
+                this.tbValorBebida.Text = BebidaSelecionada.Valor.ToString();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -173,6 +173,8 @@ namespace Foodtruck.Negocio
         {
             Validacao validacao = new Validacao();
             Lanche lancheBanco = BuscaLanchePorId(lancheAlterado.Id);
+
+            lancheBanco.Id = lancheAlterado.Id;
             lancheBanco.Nome = lancheAlterado.Nome;
             lancheBanco.Valor = lancheAlterado.Valor;
             this.banco.SaveChanges();
