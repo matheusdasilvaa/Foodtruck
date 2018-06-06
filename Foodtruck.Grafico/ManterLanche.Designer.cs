@@ -90,6 +90,7 @@
             this.tbValorLanche.Name = "tbValorLanche";
             this.tbValorLanche.Size = new System.Drawing.Size(100, 22);
             this.tbValorLanche.TabIndex = 5;
+            this.tbValorLanche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // label3
             // 
@@ -106,6 +107,7 @@
             this.tbIdLanche.Name = "tbIdLanche";
             this.tbIdLanche.Size = new System.Drawing.Size(100, 22);
             this.tbIdLanche.TabIndex = 8;
+            this.tbIdLanche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // label4
             // 

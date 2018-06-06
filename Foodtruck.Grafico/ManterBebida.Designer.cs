@@ -76,6 +76,7 @@
             this.tbTamanhoBebida.Name = "tbTamanhoBebida";
             this.tbTamanhoBebida.Size = new System.Drawing.Size(199, 22);
             this.tbTamanhoBebida.TabIndex = 16;
+            this.tbTamanhoBebida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // tbNomeBebida
             // 
@@ -120,6 +121,7 @@
             this.tbIdBebida.Size = new System.Drawing.Size(199, 22);
             this.tbIdBebida.TabIndex = 21;
             this.tbIdBebida.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbIdBebida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // label1
             // 

@@ -84,6 +84,7 @@
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(199, 22);
             this.tbId.TabIndex = 4;
+            this.tbId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // tbNome
             // 
@@ -100,6 +101,7 @@
             this.tbCpf.Name = "tbCpf";
             this.tbCpf.Size = new System.Drawing.Size(199, 22);
             this.tbCpf.TabIndex = 6;
+            this.tbCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox11_num);
             // 
             // tbEmail
             // 
