@@ -31,13 +31,12 @@
             this.dgPedidos = new System.Windows.Forms.DataGridView();
             this.btAlterar = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bebida_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lanche_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,9 +46,8 @@
             this.dgPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.DataCompra,
-            this.Cliente_Id,
-            this.Bebida_Id,
-            this.Lanche_Id,
+            this.Cliente,
+            this.Valor,
             this.Situação});
             this.dgPedidos.Location = new System.Drawing.Point(15, 84);
             this.dgPedidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -79,6 +77,17 @@
             this.btRemover.Text = "Remover";
             this.btRemover.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(234, 25);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 42);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Finalizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -91,40 +100,23 @@
             this.DataCompra.HeaderText = "DataCompra";
             this.DataCompra.Name = "DataCompra";
             // 
-            // Cliente_Id
+            // Cliente
             // 
-            this.Cliente_Id.DataPropertyName = "Cliente_Id";
-            this.Cliente_Id.HeaderText = "Cliente_Id";
-            this.Cliente_Id.Name = "Cliente_Id";
+            this.Cliente.DataPropertyName = "DadosCliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
             // 
-            // Bebida_Id
+            // Valor
             // 
-            this.Bebida_Id.DataPropertyName = "Bebida_Id";
-            this.Bebida_Id.HeaderText = "Bebida_Id";
-            this.Bebida_Id.Name = "Bebida_Id";
-            // 
-            // Lanche_Id
-            // 
-            this.Lanche_Id.DataPropertyName = "Lanche_Id";
-            this.Lanche_Id.HeaderText = "Lanche_Id";
-            this.Lanche_Id.Name = "Lanche_Id";
+            this.Valor.DataPropertyName = "ValorTotal";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
             // 
             // Situação
             // 
             this.Situação.DataPropertyName = "Encerrado";
             this.Situação.HeaderText = "Situação";
             this.Situação.Name = "Situação";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(234, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 42);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Finalizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TelaListaPedido
             // 
@@ -149,12 +141,11 @@
         private System.Windows.Forms.DataGridView dgPedidos;
         private System.Windows.Forms.Button btAlterar;
         private System.Windows.Forms.Button btRemover;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bebida_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lanche_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Situação;
-        private System.Windows.Forms.Button button1;
     }
 }
